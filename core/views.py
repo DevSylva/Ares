@@ -9,14 +9,17 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.http import HttpResponse
 from core.models import (
-    Pupil
+    Pupil,
+    Teacher,
+    Staff,
+    Class
 )
 # Create your views here.
 
 @api_view(["GET", "POST"])
-def pupil(request):
+def classView(request):
     if request.method == "GET":
-        return Response("GET Pupil", status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_200_OK)
     
     elif request.method == "POST":
-        return Response("POST Pupil", status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_200_OK)
