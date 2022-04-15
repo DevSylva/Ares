@@ -17,7 +17,7 @@ class Pupil(models.Model):
     date_of_birth = models.DateField()
     age = models.CharField(max_length=4, null=True, blank=True, default="0")
     sex = models.CharField(choices=SEX, max_length=2)
-    passport = models.ImageField(upload_to="uploads/pupil", null=True, blank=True)
+    passport = models.ImageField(null=True, blank=True)
 
     # contact info
     phone_number = models.CharField(max_length=15)
@@ -57,8 +57,7 @@ class Teacher(models.Model):
     date_of_birth = models.DateField()
     age = models.CharField(max_length=4, null=True, blank=True, default="0")
     sex = models.CharField(choices=SEX, max_length=2)
-    passport = models.ImageField(
-        upload_to="uploads/teacher", null=True, blank=True)
+    passport = models.ImageField(null=True, blank=True)
 
     # contact info
     phone_number = models.CharField(max_length=15)
@@ -97,8 +96,7 @@ class Staff(models.Model):
     date_of_birth = models.DateField()
     age = models.CharField(max_length=4, null=True, blank=True, default="0")
     sex = models.CharField(choices=SEX, max_length=2)
-    passport = models.ImageField(
-        upload_to="uploads/staff", null=True, blank=True)
+    passport = models.ImageField(null=True, blank=True)
     role = models.CharField(choices=ROLE, max_length=20, null=True)
 
     # contact info
