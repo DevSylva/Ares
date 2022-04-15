@@ -10,6 +10,7 @@ class PupilSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pupil
         fields = (
+            'id',
             'first_name',
             'middle_name',
             'last_name',
@@ -27,6 +28,7 @@ class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
         fields = (
+            'id',
             'first_name',
             'middle_name',
             'last_name',
@@ -45,6 +47,7 @@ class StaffSerializer(serializers.ModelSerializer):
     class Meta:
         model = Staff
         fields = (
+            'id',
             'first_name',
             'middle_name',
             'last_name',

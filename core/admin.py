@@ -9,7 +9,7 @@ from .models import (
 
 
 class PupilAdmin(admin.ModelAdmin):
-    list_filter = ('sex',)
+    list_filter = ('sex', 'Class')
 
 class TeacherAdmin(admin.ModelAdmin):
     list_filter = ('sex',)
@@ -21,5 +21,4 @@ class StaffAdmin(admin.ModelAdmin):
 admin.site.register(Pupil, PupilAdmin)
 admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Staff, StaffAdmin)
-
 admin.site.register(Class)
