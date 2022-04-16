@@ -51,7 +51,38 @@ INSTALLED_APPS = [
 
     # third party apps
     'rest_framework',
-    'rest_framework_simplejwt'
+    'rest_framework_simplejwt',
+    'corsheaders',  
+    'drf_yasg2',
+]
+
+
+
+CORS_ALLOW_ALL_ORIGINS: True
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:8000",
 ]
 
 
@@ -84,6 +115,7 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

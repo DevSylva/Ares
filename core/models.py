@@ -28,7 +28,7 @@ class Pupil(models.Model):
     parent_or_guardian_name = models.TextField()
     parent_or_guardian_phone_numbers = models.TextField()
 
-    Class = models.ForeignKey("core.Class", null=True, on_delete=models.CASCADE)
+    Class = models.ForeignKey("core.Class", null=True, blank=True, on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(default=timezone.now)
 
