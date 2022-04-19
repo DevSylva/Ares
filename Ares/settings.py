@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     # created apps
     'account',
     'core',
+    'notice',
+    'result',
+    'event',
 
     # third party apps
     'rest_framework',
