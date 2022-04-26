@@ -47,14 +47,14 @@ INSTALLED_APPS = [
 
     # created apps
     'account',
-   
+
     # third party apps
     'rest_framework',
     'rest_framework_simplejwt',
-    'corsheaders',  
+    'corsheaders',
     'drf_yasg2',
+    'widget_tweaks',
 ]
-
 
 
 CORS_ALLOW_ALL_ORIGINS: True

@@ -1,0 +1,5 @@
+{
+  "files.autoSave": "afterDelay",
+  "python.formatting.provider": "autopep8",
+  "files.autoSaveDelay": 100
+}
