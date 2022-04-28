@@ -47,6 +47,8 @@ INSTALLED_APPS = [
 
     # created apps
     'account',
+    'core',
+    'teacher',
 
     # third party apps
     'rest_framework',
