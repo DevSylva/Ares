@@ -25,7 +25,7 @@ def sign_in(request):
                 return redirect("core:dashboard")
             else:
                 messages.error(request, "Invalid username or password.")
-                return redirect('account:sign-in')
+                # return redirect('account:sign-in')
         else:
             messages.error(request, "Invalid username or password.")
             
