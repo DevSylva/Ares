@@ -14,6 +14,8 @@ from pathlib import Path
 from datetime import timedelta
 import os
 import environ
+import dj_database_url
+import django_on_heroku
 
 
 env = environ.Env()
@@ -32,7 +34,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -48,7 +50,6 @@ INSTALLED_APPS = [
     # created apps
     'account',
     'core',
-    'teacher',
 
     # third party apps
     'rest_framework',
@@ -156,6 +157,9 @@ DATABASES = {
 }
 
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -205,3 +209,5 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_on_heroku.settings(locals())

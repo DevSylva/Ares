@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from account.models import User
-from teacher.models import Teacher
+from .models import Teacher
 
 
 def home(request):
@@ -38,3 +38,13 @@ def profile(request):
         'user': current_user,
     }
     return render(request, "profile.html", context=data)
+
+
+@login_required(login_url="account:sign-in")
+def teachers(request):
+    teachers = Teacher.objects.all()
+
+    data = {
+        "teachers": teachers
+    }
+    return render(request, "teachers.html", context=data)
