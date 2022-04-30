@@ -27,6 +27,7 @@ def sign_in(request):
                 messages.error(request, "Invalid username or password.")
         else:
             messages.error(request, "Invalid username or password.")
+            return redirect('account:sign-in')
     form = AuthenticationForm()
     return render(request, "sign-in.html", context={"form": form})
 
