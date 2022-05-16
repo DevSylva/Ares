@@ -10,6 +10,8 @@ class User(AbstractUser):
     is_teacher = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
 
+    REQUIRED_FIELDS = ['user_name', 'email']
+
     def __str__(self):
         return self.email
 

@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from account.api.views import *
 
 
 app_name = "account"
@@ -11,9 +12,6 @@ urlpatterns = [
 
 
     # api url path endpoint
-    # path("api/sign-in/",),
-    # path("api/sign-up/"),
-    # path("api/sign-out/")
+    path('api/sign-up/', CustomUserCreate.as_view(), name='api-sign-up'),
+    path('api/sign-in/', LoginView.as_view(), name='api-sign-in'),
 ]
-
-
