@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from account.models import User
-from .models import Teacher
+from .models import Teacher, Project
 
 
 def home(request):
@@ -21,6 +21,7 @@ def dashboard(request):
         "logged_in_user": logged_in_user,
         "Users": Users,
         "Teachers": Teachers,
+        "page": "dashboard",
     }
     return render(request, "dashboard.html", context=data)
 
@@ -36,6 +37,7 @@ def profile(request):
 
     data = {
         'user': current_user,
+        'page': "profile",
     }
     return render(request, "profile.html", context=data)
 
@@ -43,8 +45,11 @@ def profile(request):
 @login_required(login_url="account:sign-in")
 def teachers(request):
     teachers = Teacher.objects.all()
+    projects = Project.objects.all()
 
     data = {
-        "teachers": teachers
+        "teachers": teachers,
+        "projects": projects,
+        "page": "teachers",
     }
     return render(request, "teachers.html", context=data)

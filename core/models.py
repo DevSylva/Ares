@@ -90,5 +90,11 @@ class Project(models.Model):
     completion = models.CharField(max_length=30, choices=COMPLETION, default=COMPLETION[0])
     date_created =  models.DateField(auto_now=True)
 
+    def imageUrl(self):
+        if self.logo:
+            return self.logo.url
+        else:
+            return self.logo
+
     def __str__(self):
         return self.name

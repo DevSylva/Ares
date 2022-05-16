@@ -25,9 +25,9 @@ def sign_in(request):
                 return redirect("core:dashboard")
             else:
                 messages.error(request, "Invalid username or password.")
-                # return redirect('account:sign-in')
         else:
             messages.error(request, "Invalid username or password.")
+            return redirect("account:sign-in")
             
     form = AuthenticationForm()
     return render(request, "sign-in.html", context={"form": form})
