@@ -6,10 +6,14 @@ from django.http import HttpResponse
 
 from core.views import dashboard
 from .forms import SignUpForm
+from .utils import Util
 # Create your views here.
 
 
 def sign_in(request):
+    if request.user.is_authenticated and request.method == "GET":
+        return redirect("core:dashboard")
+        
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         data = request.POST
@@ -42,6 +46,18 @@ def sign_up(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
+
+            # notify me of this signup
+            try:
+                data = {
+                    "subject": "New User SignUp",
+                    "body": "Hello boss, you have a recently signup from {}".format(request.POST['email'])
+                }
+                Util.send_email(data)
+                print("email has been successfully sent!")
+            except Exception as e:
+                print(e)
+
             login(request, user)
             messages.success(request, "Registration successful.")
             return redirect("core:home")

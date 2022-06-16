@@ -64,14 +64,6 @@
             </a>
           </li>
         </ul>
-        <!-- <li class="nav-item d-flex align-items-center">
-          <a class="btn btn-round btn-sm mb-0 btn-outline-white me-2" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard">Online Builder</a>
-        </li>
-        <ul class="navbar-nav d-lg-block d-none">
-          <li class="nav-item">
-            <a href="https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light">Free download</a>
-          </li>
-        </ul> -->
       </div>
     </div>
   </nav>
@@ -94,9 +86,9 @@
           <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
             <div class="card z-index-0">
               <div class="card-header text-center pt-4">
-                <h5>Register with</h5>
+                <h5>Register Here</h5>
               </div>
-              <div class="row px-xl-5 px-sm-4 px-3">
+              <!-- <div class="row px-xl-5 px-sm-4 px-3">
                 <div class="col-3 ms-auto px-1">
                   <a class="btn btn-outline-light w-100" href="javascript:;">
                     <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
@@ -139,24 +131,26 @@
                     or
                   </p>
                 </div>
-              </div>
+              </div> -->
               <div class="card-body">
                 <form method="POST" role="form text-left">
                   {% csrf_token %}
                   <div class="mb-3">
-                    <!-- <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="email-addon"> -->
+                    {% render_field form.first_name class='form-control' placeholder="First Name" %}
+                  </div>
+                  <div class="mb-3">
+                    {% render_field form.last_name class='form-control' placeholder="Last Name" %}
+                  </div>
+                  <div class="mb-3">
                     {% render_field form.username class='form-control' placeholder="Username" %}
                   </div>
                   <div class="mb-3">
-                    <!-- <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon"> -->
                     {% render_field form.email class='form-control' placeholder=form.email.label %}
                   </div>
                   <div class="mb-3">
-                    <!-- <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon"> -->
                     {% render_field form.password1 class='form-control' placeholder="Password" type="password" %}
                   </div>
                   <div class="mb-3">
-                    <!-- <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon"> -->
                     {% render_field form.password2 class='form-control' placeholder="Password Confirmation" type="password" %}
                   </div>
                   {% if messages %}
@@ -187,7 +181,7 @@
     <footer class="footer py-5">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 mb-4 mx-auto text-center">
+          <!-- <div class="col-lg-8 mb-4 mx-auto text-center">
             <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Company
             </a>
@@ -206,7 +200,7 @@
             <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Pricing
             </a>
-          </div>
+          </div> -->
           <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
             <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
               <span class="text-lg fab fa-dribbble"></span>
@@ -230,7 +224,7 @@
             <p class="mb-0 text-secondary">
               Copyright © <script>
                 document.write(new Date().getFullYear())
-              </script> Soft by devSylva.
+              </script> Ares.
             </p>
           </div>
         </div>
@@ -239,10 +233,10 @@
     <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   </main>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="{% static 'js/core/popper.min.js' %}"></script>
+  <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <script src="{% static 'js/plugins/smooth-scrollbar.min.js' %}"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -255,7 +249,6 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.5"></script>
+  <script src="{% static 'js/soft-ui-dashboard.min.js' %}"></script>
 </body>
-
 </html>

@@ -37,7 +37,6 @@
   </head>
 
   <body class="g-sidenav-show bg-gray-100">
-
     <!-- Ares Dashborad sidebar -->
     {% include 'layouts/sidebar.html' %}
     <!--Ares Dashborad sidebar end  -->
@@ -252,12 +251,12 @@
                   <div class="col-8">
                     <div class="numbers">
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">
-                        Today's Money
+                        Total Earnings
                       </p>
                       <h5 class="font-weight-bolder mb-0">
-                        $53,000
+                        {{ user.account_balance }}
                         <span class="text-success text-sm font-weight-bolder"
-                          >+55%</span
+                          >{{ user.percentage }}</span
                         >
                       </h5>
                     </div>
@@ -283,13 +282,41 @@
                   <div class="col-8">
                     <div class="numbers">
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">
+                        Total Deposit
+                      </p>
+                      <h5 class="font-weight-bolder mb-0">
+                        {{ user.total_deposit }}
+                        <!-- <span class="text-success text-sm font-weight-bolder"
+                          >+3%</span
+                        > -->
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="col-4 text-end">
+                    <div
+                      class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md"
+                    >
+                      <i
+                        class="ni ni-money-coins text-lg opacity-10"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-capitalize font-weight-bold">
                         Total Users
                       </p>
                       <h5 class="font-weight-bolder mb-0">
                         {{ Users }}
-                        <span class="text-success text-sm font-weight-bolder"
-                          >+3%</span
-                        >
                       </h5>
                     </div>
                   </div>
@@ -307,64 +334,86 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-7 mb-lg-0 mb-4">
             <div class="card">
               <div class="card-body p-3">
                 <div class="row">
-                  <div class="col-8">
-                    <div class="numbers">
-                      <p class="text-sm mb-0 text-capitalize font-weight-bold">
-                        Teachers
+                  <div class="col-lg-6">
+                    <div class="d-flex flex-column h-100">
+                      <p class="mb-1 pt-2 text-bold">Built by Ares</p>
+                      <h5 class="font-weight-bolder">Investment / Savings Platform</h5>
+                      <p class="mb-5">
+                        We help you make the right profitable investments which yields the right income over time.
                       </p>
-                      <h5 class="font-weight-bolder mb-0">
-                        {{ Teachers }}
-                        <span class="text-danger text-sm font-weight-bolder"
-                          >-2%</span
-                        >
-                      </h5>
+
+                      <p>We provide this income by investing your money in crypto currencies, real estate, agriculture, stock markets etc. And with the help of our qualified marketting team we always do the most by getting you your profit.</p>
+                      <a
+                        class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+                        href="javascript:;"
+                      >
+                        <!-- Read More -->
+                        <i
+                          class="fas fa-arrow-right text-sm ms-1"
+                          aria-hidden="true"
+                        ></i>
+                      </a>
                     </div>
                   </div>
-                  <div class="col-4 text-end">
-                    <div
-                      class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md"
-                    >
-                      <i
-                        class="ni ni-paper-diploma text-lg opacity-10"
-                        aria-hidden="true"
-                      ></i>
+                  <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+                    <div class="bg-gradient-primary border-radius-lg h-100">
+                      <img
+                        src="{% static 'img/shapes/waves-white.svg' %}"
+                        class="position-absolute h-100 w-50 top-0 d-lg-block d-none"
+                        alt="waves"
+                      />
+                      <div
+                        class="position-relative d-flex align-items-center justify-content-center h-100"
+                      >
+                        <img
+                          class="w-100 position-relative z-index-2 pt-4"
+                          src="{% static 'img/illustrations/rocket-white.png' %}"
+                          alt="rocket"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-sm-6">
-            <div class="card">
-              <div class="card-body p-3">
-                <div class="row">
-                  <div class="col-8">
-                    <div class="numbers">
-                      <p class="text-sm mb-0 text-capitalize font-weight-bold">
-                        Sales
-                      </p>
-                      <h5 class="font-weight-bolder mb-0">
-                        $103,430
-                        <span class="text-success text-sm font-weight-bolder"
-                          >+5%</span
-                        >
-                      </h5>
-                    </div>
-                  </div>
-                  <div class="col-4 text-end">
-                    <div
-                      class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md"
-                    >
-                      <i
-                        class="ni ni-cart text-lg opacity-10"
-                        aria-hidden="true"
-                      ></i>
-                    </div>
-                  </div>
+          <div class="col-lg-5">
+            <div class="card h-100 p-3">
+              <div
+                class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+                style="background-image: url('{% static "assets/img/ivancik.jpg" %}')"
+              >
+                <span class="mask bg-gradient-dark"></span>
+                <div
+                  class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
+                >
+                  <h5 class="text-white font-weight-bolder mb-4 pt-2">
+                    Work with the rockets
+                  </h5>
+                  <p class="text-white">
+                    Wealth creation is an evolutionarily recent positive-sum
+                    game. It is all about who take the opportunity first.
+
+                    
+                  </p >
+                  <p class="text-white">And guess what? Ares is definitely the game changer you've been looking for. We have a team of competent economists and data scientists which provide us world-class options and analysis needed for the win.</p>
+
+                  <a
+                    class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
+                    href="javascript:;"
+                  >
+                    "Meet you at the top" -    Ares
+                    <i
+                      class="fas fa-arrow-right text-sm ms-1"
+                      aria-hidden="true"
+                    ></i>
+                  </a>
                 </div>
               </div>
             </div>
@@ -665,510 +714,170 @@
             </div>
           </div>
         </div>
-        <div class="row my-4">
-          <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
-            <div class="card">
-              <div class="card-header pb-0">
-                <div class="row">
-                  <div class="col-lg-6 col-7">
-                    <h6>Projects</h6>
-                    <p class="text-sm mb-0">
-                      <i class="fa fa-check text-info" aria-hidden="true"></i>
-                      <span class="font-weight-bold ms-1">30 done</span> this
-                      month
-                    </p>
-                  </div>
-                  <div class="col-lg-6 col-5 my-auto text-end">
-                    <div class="dropdown float-lg-end pe-4">
-                      <a
-                        class="cursor-pointer"
-                        id="dropdownTable"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <i class="fa fa-ellipsis-v text-secondary"></i>
+
+        <div class="col-12 mt-4">
+          <div class="card mb-4">
+            <div class="card-header pb-0 p-3">
+              <h6 class="mb-1">Investment Plans</h6>
+              <!-- <p class="text-sm">Architects design houses</p> -->
+            </div>
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                  <div class="card card-blog card-plain">
+                    <div class="position-relative">
+                      <a class="d-block shadow-xl border-radius-xl">
+                        <img src="{% static 'img/home-decor-1.jpg' %}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                       </a>
-                      <ul
-                        class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5"
-                        aria-labelledby="dropdownTable"
-                      >
-                        <li>
-                          <a
-                            class="dropdown-item border-radius-md"
-                            href="javascript:;"
-                            >Action</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item border-radius-md"
-                            href="javascript:;"
-                            >Another action</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item border-radius-md"
-                            href="javascript:;"
-                            >Something else here</a
-                          >
-                        </li>
-                      </ul>
+                    </div>
+                    <div class="card-body px-1 pb-0">
+                      <p class="text-gradient text-dark mb-2 text-sm">Plan A</p>
+                      <a href="javascript:;">
+                        <h5>
+                          $500 - $1,999
+                        </h5>
+                      </a>
+                      <p class="mb-4 text-sm">
+                        As Uber works through a huge amount of internal management turmoil.
+                      </p>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <a href="http://localhost:8000/plan/1/" class="btn btn-outline-primary btn-sm mb-0">View Plan</a>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
+                            <img alt="Image placeholder" src="{% static 'img/team-1.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
+                            <img alt="Image placeholder" src="{% static 'img/team-2.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
+                            <img alt="Image placeholder" src="{% static 'img/team-3.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
+                            <img alt="Image placeholder" src="{% static 'img/team-4.jpg' %}">
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="card-body px-0 pb-2">
-                <div class="table-responsive">
-                  <table class="table align-items-center mb-0">
-                    <thead>
-                      <tr>
-                        <th
-                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          Companies
-                        </th>
-                        <th
-                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-                        >
-                          Members
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          Budget
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          Completion
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="{% static 'img/small-logos/logo-xd.svg' %}"
-                                class="avatar avatar-sm me-3"
-                                alt="xd"
-                              />
-                            </div>
-                            <div
-                              class="d-flex flex-column justify-content-center"
-                            >
-                              <h6 class="mb-0 text-sm">Soft UI XD Version</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Ryan Tompson"
-                            >
-                              <img src="{% static 'img/team-1.jpg' %}" alt="team1" />
-                            </a>
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Romina Hadid"
-                            >
-                              <img src="{% static 'img/team-2.jpg' %}" alt="team2" />
-                            </a>
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Alexander Smith"
-                            >
-                              <img src="{% static 'img/team-3.jpg' %}" alt="team3" />
-                            </a>
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Jessica Doe"
-                            >
-                              <img src="{% static 'img/team-4.jpg' %}" alt="team4" />
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold">
-                            $14,000
-                          </span>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-wrapper w-75 mx-auto">
-                            <div class="progress-info">
-                              <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                  >60%</span
-                                >
-                              </div>
-                            </div>
-                            <div class="progress">
-                              <div
-                                class="progress-bar bg-gradient-info w-60"
-                                role="progressbar"
-                                aria-valuenow="60"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                              ></div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="{% static 'img/small-logos/logo-atlassian.svg' %}"
-                                class="avatar avatar-sm me-3"
-                                alt="atlassian"
-                              />
-                            </div>
-                            <div
-                              class="d-flex flex-column justify-content-center"
-                            >
-                              <h6 class="mb-0 text-sm">Add Progress Track</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Romina Hadid"
-                            >
-                              <img src="{% static 'img/team-2.jpg' %}" alt="team5" />
-                            </a>
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Jessica Doe"
-                            >
-                              <img src="{% static 'img/team-4.jpg' %}" alt="team6" />
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $3,000 </span>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-wrapper w-75 mx-auto">
-                            <div class="progress-info">
-                              <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                  >10%</span
-                                >
-                              </div>
-                            </div>
-                            <div class="progress">
-                              <div
-                                class="progress-bar bg-gradient-info w-10"
-                                role="progressbar"
-                                aria-valuenow="10"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                              ></div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="{% static 'img/small-logos/logo-slack.svg' %}"
-                                class="avatar avatar-sm me-3"
-                                alt="team7"
-                              />
-                            </div>
-                            <div
-                              class="d-flex flex-column justify-content-center"
-                            >
-                              <h6 class="mb-0 text-sm">Fix Platform Errors</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Romina Hadid"
-                            >
-                              <img src="{% static 'img/team-3.jpg' %}" alt="team8" />
-                            </a>
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Jessica Doe"
-                            >
-                              <img src="{% static 'img/team-1.jpg' %}" alt="team9" />
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold">
-                            Not set
-                          </span>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-wrapper w-75 mx-auto">
-                            <div class="progress-info">
-                              <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                  >100%</span
-                                >
-                              </div>
-                            </div>
-                            <div class="progress">
-                              <div
-                                class="progress-bar bg-gradient-success w-100"
-                                role="progressbar"
-                                aria-valuenow="100"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                              ></div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="{% static 'img/small-logos/logo-spotify.svg' %}"
-                                class="avatar avatar-sm me-3"
-                                alt="spotify"
-                              />
-                            </div>
-                            <div
-                              class="d-flex flex-column justify-content-center"
-                            >
-                              <h6 class="mb-0 text-sm">
-                                Launch our Mobile App
-                              </h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Ryan Tompson"
-                            >
-                              <img src="{% static 'img/team-4.jpg' %}" alt="user1" />
-                            </a>
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Romina Hadid"
-                            >
-                              <img src="{% static 'img/team-3.jpg' %}" alt="user2" />
-                            </a>
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Alexander Smith"
-                            >
-                              <img src="{% static 'img/team-4.jpg' %}" alt="user3" />
-                            </a>
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Jessica Doe"
-                            >
-                              <img src="{% static 'img/team-1.jpg' %}" alt="user4" />
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold">
-                            $20,500
-                          </span>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-wrapper w-75 mx-auto">
-                            <div class="progress-info">
-                              <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                  >100%</span
-                                >
-                              </div>
-                            </div>
-                            <div class="progress">
-                              <div
-                                class="progress-bar bg-gradient-success w-100"
-                                role="progressbar"
-                                aria-valuenow="100"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                              ></div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="{% static 'img/small-logos/logo-jira.svg' %}"
-                                class="avatar avatar-sm me-3"
-                                alt="jira"
-                              />
-                            </div>
-                            <div
-                              class="d-flex flex-column justify-content-center"
-                            >
-                              <h6 class="mb-0 text-sm">
-                                Add the New Pricing Page
-                              </h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Ryan Tompson"
-                            >
-                              <img src="{% static 'img/team-4.jpg' %}" alt="user5" />
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $500 </span>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-wrapper w-75 mx-auto">
-                            <div class="progress-info">
-                              <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                  >25%</span
-                                >
-                              </div>
-                            </div>
-                            <div class="progress">
-                              <div
-                                class="progress-bar bg-gradient-info w-25"
-                                role="progressbar"
-                                aria-valuenow="25"
-                                aria-valuemin="0"
-                                aria-valuemax="25"
-                              ></div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="{% static 'img/small-logos/logo-invision.svg' %}"
-                                class="avatar avatar-sm me-3"
-                                alt="invision"
-                              />
-                            </div>
-                            <div
-                              class="d-flex flex-column justify-content-center"
-                            >
-                              <h6 class="mb-0 text-sm">
-                                Redesign New Online Shop
-                              </h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Ryan Tompson"
-                            >
-                              <img src="{% static 'img/team-1.jpg' %}" alt="user6" />
-                            </a>
-                            <a
-                              href="javascript:;"
-                              class="avatar avatar-xs rounded-circle"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="bottom"
-                              title="Jessica Doe"
-                            >
-                              <img src="{% static 'img/team-4.jpg' %}" alt="user7" />
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $2,000 </span>
-                        </td>
-                        <td class="align-middle">
-                          <div class="progress-wrapper w-75 mx-auto">
-                            <div class="progress-info">
-                              <div class="progress-percentage">
-                                <span class="text-xs font-weight-bold"
-                                  >40%</span
-                                >
-                              </div>
-                            </div>
-                            <div class="progress">
-                              <div
-                                class="progress-bar bg-gradient-info w-40"
-                                role="progressbar"
-                                aria-valuenow="40"
-                                aria-valuemin="0"
-                                aria-valuemax="40"
-                              ></div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                  <div class="card card-blog card-plain">
+                    <div class="position-relative">
+                      <a class="d-block shadow-xl border-radius-xl">
+                        <img src="{% static 'img/home-decor-2.jpg' %}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                      </a>
+                    </div>
+                    <div class="card-body px-1 pb-0">
+                      <p class="text-gradient text-dark mb-2 text-sm">Plan B</p>
+                      <a href="javascript:;">
+                        <h5>
+                          $2,000 - $5,999
+                        </h5>
+                      </a>
+                      <p class="mb-4 text-sm">
+                        Music is something that every person has his or her own specific opinion about.
+                      </p>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <a href="http://localhost:8000/plan/2/" class="btn btn-outline-primary btn-sm mb-0">View Plan</a>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
+                            <img alt="Image placeholder" src="{% static 'img/team-3.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
+                            <img alt="Image placeholder" src="{% static 'img/team-4.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
+                            <img alt="Image placeholder" src="{% static 'img/team-1.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
+                            <img alt="Image placeholder" src="{% static 'img/team-2.jpg' %}">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                  <div class="card card-blog card-plain">
+                    <div class="position-relative">
+                      <a class="d-block shadow-xl border-radius-xl">
+                        <img src="{% static 'img/home-decor-2.jpg' %}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                      </a>
+                    </div>
+                    <div class="card-body px-1 pb-0">
+                      <p class="text-gradient text-dark mb-2 text-sm">Plan C</p>
+                      <a href="javascript:;">
+                        <h5>
+                          $6,000 - $9,999
+                        </h5>
+                      </a>
+                      <p class="mb-4 text-sm">
+                        Music is something that every person has his or her own specific opinion about.
+                      </p>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <a href="http://localhost:8000/plan/3/" class="btn btn-outline-primary btn-sm mb-0">View Plan</a>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
+                            <img alt="Image placeholder" src="{% static 'img/team-3.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
+                            <img alt="Image placeholder" src="{% static 'img/team-4.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
+                            <img alt="Image placeholder" src="{% static 'img/team-1.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
+                            <img alt="Image placeholder" src="{% static 'img/team-2.jpg' %}">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                  <div class="card card-blog card-plain">
+                    <div class="position-relative">
+                      <a class="d-block shadow-xl border-radius-xl">
+                        <img src="{% static 'img/home-decor-3.jpg' %}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                      </a>
+                    </div>
+                    <div class="card-body px-1 pb-0">
+                      <p class="text-gradient text-dark mb-2 text-sm">Plan D</p>
+                      <a href="javascript:;">
+                        <h5>
+                          $10,000 - $49,999
+                        </h5>
+                      </a>
+                      <p class="mb-4 text-sm">
+                        Different people have different taste, and various types of music.
+                      </p>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <a href="http://localhost:8000/plan/4/" class="btn btn-outline-primary btn-sm mb-0">View Plan</a>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
+                            <img alt="Image placeholder" src="{% static 'img/team-4.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
+                            <img alt="Image placeholder" src="{% static 'img/team-3.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
+                            <img alt="Image placeholder" src="{% static 'img/team-2.jpg' %}">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
+                            <img alt="Image placeholder" src="{% static 'img/team-1.jpg' %}">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
               </div>
             </div>
           </div>
+        </div>
+        <div class="row my-4">
+          
           <div class="col-lg-4 col-md-6">
             <div class="card h-100">
               <div class="card-header pb-0">
@@ -1279,7 +988,6 @@
         </div>
 
         {% include 'layouts/footer.html' %}
-        
       </div>
     </main>
     <div class="fixed-plugin">
@@ -1378,16 +1086,8 @@
             />
           </div>
           <hr class="horizontal dark my-sm-4" />
-          <a
-            class="btn bg-gradient-dark w-100"
-            href="#"
-            >Free Download</a
-          >
-          <a
-            class="btn btn-outline-dark w-100"
-            href="#"
-            >View documentation</a
-          >
+          <a class="btn bg-gradient-dark w-100" href="#">Free Download</a>
+          <a class="btn btn-outline-dark w-100" href="#">View documentation</a>
           <div class="w-100 text-center">
             <a
               class="github-button"
@@ -1399,18 +1099,10 @@
               >Star</a
             >
             <h6 class="mt-3">Thank you for sharing!</h6>
-            <a
-              href="#"
-              class="btn btn-dark mb-0 me-2"
-              target="_blank"
-            >
+            <a href="#" class="btn btn-dark mb-0 me-2" target="_blank">
               <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
             </a>
-            <a
-              href="#"
-              class="btn btn-dark mb-0 me-2"
-              target="_blank"
-            >
+            <a href="#" class="btn btn-dark mb-0 me-2" target="_blank">
               <i class="fab fa-facebook-square me-1" aria-hidden="true"></i>
               Share
             </a>
@@ -1521,15 +1213,21 @@
         type: "line",
         data: {
           labels: [
+            "Sept",
+            "Nov",
+            "Dec",
+            "Jan",
+            "Feb",
+            "Mar",
             "Apr",
             "May",
             "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
+            // "Jul",
+            // "Aug",
+            // "Sep",
+            // "Oct",
+            // "Nov",
+            // "Dec",
           ],
           datasets: [
             {
