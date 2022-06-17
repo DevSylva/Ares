@@ -42,7 +42,7 @@ def profile(request):
 
 @login_required(login_url="account:sign-in")
 def transactions(request):
-    transaction_s = Transaction.objects.get(user=request.user.id)
+    transaction_s = Transaction.objects.filter(user=request.user.id)
 
     data = {
         "transactions": transaction_s,
