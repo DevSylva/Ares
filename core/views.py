@@ -32,8 +32,6 @@ def dashboard(request):
 def profile(request):
     user = User.objects.get(email=request.user)
 
-    
-
     data = {
         'full_name': f"{user.first_name} {user.last_name}",
         'page': "profile",
@@ -112,4 +110,9 @@ def deposit(request):
 @login_required(login_url="account:sign-in")
 def plan(request, id):
     investment_plan = Plan.objects.get(id=id)
-    return render(request, "billing.html")
+    user = User.objects.get(email=request.user)
+    data = {
+        "plan": investment_plan,
+        "user": user
+    }
+    return render(request, "billing.html", context=data)

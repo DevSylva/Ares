@@ -60,10 +60,10 @@
                   <div class="card-body">
                     <form method="POST" role="form">
                       {% csrf_token %}
-                      <img class="w-10 me-3 mb-0" src="{% static 'img/logos/btc.png' %}" alt="logo">
+                      <!-- <img class="w-10 me-3 mb-0" src="{% static 'img/logos/btc.png' %}" alt="logo"> -->
                       <label>Bitcoin wallet address</label>
                       <div class="mb-3">
-                        <input
+                        <!-- <input
                           type="text"
                           value="{{ btc.address }}"
                           class="form-control"
@@ -71,12 +71,13 @@
                           aria-label="bitcoin"
                           aria-describedby="bitcoin"
                           readonly
-                        />
+                        /> -->
+                        <label class="form-control">{{btc.address}}</label>
                       </div>
-                      <img class="w-10 me-3 mb-0" src="{% static 'img/logos/ethereum.png' %}" alt="logo">
+                      <!-- <img class="w-10 me-3 mb-0" src="{% static 'img/logos/ethereum.png' %}" alt="logo"> -->
                       <label>Ethereum wallet address</label>
                       <div class="mb-3">
-                        <input
+                        <!-- <input
                           type="text"
                           value="{{ eth.address }}"
                           class="form-control"
@@ -84,7 +85,8 @@
                           aria-label="Ethereum"
                           aria-describedby="Ethereum"
                           readonly
-                        />
+                        /> -->
+                        <label class="form-control">{{eth.address}}</label>
                       </div>
                       <label>Amount Deposited (USD)</label>
                       <div class="mb-3">
@@ -95,7 +97,7 @@
                           aria-label="Ethereum"
                           aria-describedby="Ethereum"
                         /> -->
-                        {% render_field form.amount class='form-control' placeholder="Amount you want to invest" %}
+                        {% render_field form.amount class='form-control' placeholder="Amount you want to invest" type="number" min="500" %}
                       </div>
                       <label>Investment Plan</label>
                       <div class="mb-3">
@@ -148,16 +150,7 @@
                       </div>
                     </form>
                   </div>
-                  <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                    <p class="mb-4 text-sm mx-auto">
-                      Don't have an account?
-                      <a
-                        href="javascript:;"
-                        class="text-info text-gradient font-weight-bold"
-                        >Sign up</a
-                      >
-                    </p>
-                  </div>
+                   
                 </div>
               </div>
               <div class="col-md-6">
