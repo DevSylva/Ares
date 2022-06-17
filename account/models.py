@@ -18,7 +18,7 @@ class User(AbstractUser):
     percentage = models.CharField(max_length=50, null=True, blank=True, default="+0%")
     total_deposit = models.CharField(max_length=50, null=True, blank=True, default="$0")
 
-    REQUIRED_FIELDS = ['email', 'gender']
+    REQUIRED_FIELDS = ['email', 'gender', 'mobile']
 
     def __str__(self):
         return self.email
