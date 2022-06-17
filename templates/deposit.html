@@ -60,7 +60,7 @@
                   <div class="card-body">
                     <form method="POST" role="form">
                       {% csrf_token %}
-                      <!-- <img class="w-10 me-3 mb-0" src="{% static 'img/logos/btc.png' %}" alt="logo"> -->
+                      <a href="#"><img class="w-10 me-3 mb-0" src="{% static 'img/logos/bitcoinqr.png' %}" alt="logo"></a>
                       <label>Bitcoin wallet address</label>
                       <div class="mb-3">
                         <!-- <input
@@ -74,7 +74,7 @@
                         /> -->
                         <label class="form-control">{{btc.address}}</label>
                       </div>
-                      <!-- <img class="w-10 me-3 mb-0" src="{% static 'img/logos/ethereum.png' %}" alt="logo"> -->
+                      <a href="#"><img class="w-10 me-3 mb-0" src="{% static 'img/logos/ethereumqr.png' %}" alt="logo"></a>
                       <label>Ethereum wallet address</label>
                       <div class="mb-3">
                         <!-- <input
