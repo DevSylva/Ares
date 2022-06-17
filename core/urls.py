@@ -11,4 +11,6 @@ urlpatterns = [
     path('billing/', views.billing, name="billing"),
     path('deposit/', views.deposit, name="deposit"),
     path('plan/<int:id>/', views.plan, name="plan"),
+    path('bitcoin-qr-code/', views.bitcoin, name="bitcoin"),
+    path('ethereum-qr-code/', views.ethereum, name="ethereum"),
 ]
