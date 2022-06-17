@@ -86,8 +86,8 @@ def deposit(request):
 
             try:
                 data = {
-                    "subject": "Someone Made a Payment",
-                    "body": "Hello boss, a payment has been initialized by {},\n Go check it out".format(request.user)
+                    "subject": "Incoming Payment",
+                    "body": "Hello boss, a payment of ${} has been initialized by {},\n Go check it out".format(request.user, request.POST['amount'])
                 }
                 Util.send_email(data)
                 print("email has been successfully sent!")
