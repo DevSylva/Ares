@@ -59,11 +59,9 @@ def deposit(request):
         print(f"file : {file}")
         print(data)
         if form.is_valid():
-            # depositor = form.save(commit=False)
-            # depositor.receipt = request.POST['receipt']
-            # depositor.user = request.user
-            # depositor.save()
-            form.save()
+            depositor = form.save(commit=False)
+            depositor.user = request.user
+            depositor.save()
             print('done')
             messages.success(request, "We'll let you know once we receive your deposit")
 
