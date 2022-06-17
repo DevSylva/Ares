@@ -3,4 +3,8 @@ from .models import User
 
 
 # Register your models here.
-admin.site.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ("username", "email", "account_balance")
+    list_filter = ("username", "email", "gender")
+
+admin.site.register(User, UserAdmin)

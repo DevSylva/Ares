@@ -6,12 +6,13 @@ from .forms import PaymentForm
 from django.contrib import messages
 from .utils import Util
 
+
+
 def home(request):
     if request.user.is_authenticated:
         return redirect("core:dashboard")
     else:
         return redirect("account:sign-in")
-
 
 @login_required(login_url='account:sign-in')
 def dashboard(request):
@@ -27,7 +28,6 @@ def dashboard(request):
     }
     return render(request, "dashboard.html", context=data)
 
-
 @login_required(login_url="account:sign-in")
 def profile(request):
     user = User.objects.get(email=request.user)
@@ -39,7 +39,6 @@ def profile(request):
     }
     return render(request, "profile.html", context=data)
 
-
 @login_required(login_url="account:sign-in")
 def transactions(request):
     transaction_s = Transaction.objects.filter(user=request.user.id)
@@ -50,22 +49,14 @@ def transactions(request):
     }
     return render(request, "transactions.html", context=data)
 
-
-@login_required(login_url="account:sign-in")
-def billing(request):
-    user = User.objects.get(email=request.user)
-    data = {
-        "user":user
-    }
-    return render(request, "billing.html", context=data)
-
-
 @login_required(login_url="account:sign-in")
 def deposit(request):
     wallet = Wallet.objects.all()
     if request.method == "POST":
         form = PaymentForm(request.POST or None, request.FILES or None)
         data = request.POST
+        file = request.FILES
+        print(f"file : {file}")
         print(data)
         if form.is_valid():
             depositor = form.save(commit=False)
@@ -107,7 +98,6 @@ def deposit(request):
     }
     return render(request, "deposit.html", context=data)
 
-
 @login_required(login_url="account:sign-in")
 def plan(request, id):
     investment_plan = Plan.objects.get(id=id)
@@ -122,7 +112,16 @@ def plan(request, id):
 def bitcoin(request):
     return render(request, 'bitcoinqrcode.html')
 
-
 @login_required(login_url="account:sign-in")
 def ethereum(request):
     return render(request, 'ethereumqrcode.html')
+
+@login_required(login_url="account:sign-in")
+def withdraw(request):
+    if request.method == "POST":
+        Withdraw.objects.create(
+            user=request.user,
+            amount=request.POST['amount'],
+            btc_wallet=request.POST['wallet']
+        )
+    return render(request, "withdraw.html")
