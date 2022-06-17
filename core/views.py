@@ -116,3 +116,12 @@ def plan(request, id):
         "user": user
     }
     return render(request, "billing.html", context=data)
+
+@login_required(login_url="account:sign-in")
+def bitcoin(request):
+    return render(request, 'bitcoinqrcode.html')
+
+
+@login_required(login_url="account:sign-in")
+def ethereum(request):
+    return render(request, 'ethereumqrcode.html')
