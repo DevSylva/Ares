@@ -55,6 +55,7 @@ class Transaction(models.Model):
         ("Deposit", "Deposit"),
         ("Withdrawal", "Withdrawal")
     )
+    
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(null=True, blank=True, upload_to="images")
     plan = models.CharField(max_length=50, null=True, blank=True)
