@@ -105,7 +105,7 @@ def plan(request, id):
         "plan": investment_plan,
         "user": user
     }
-    return render(request, "billing.html", context=data)
+    return render(request, "plan.html", context=data)
 
 @login_required(login_url="account:sign-in")
 def bitcoin(request):
