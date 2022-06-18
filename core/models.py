@@ -1,6 +1,7 @@
 import email
 from unicodedata import name
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -65,7 +66,7 @@ class Transaction(models.Model):
     completion = models.CharField(
         max_length=30, choices=COMPLETION, default=COMPLETION[9])
     type = models.CharField(max_length=30, choices=TYPE, default=TYPE[0])
-    date_created = models.DateField(auto_now=True)
+    date_created = models.CharField(default=timezone.now, max_length=40)
 
     def __str__(self):
         return str(self.user)
@@ -96,7 +97,7 @@ class Payment(models.Model):
     receipt = models.ImageField(upload_to="images", null=True, blank=True)
     plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
     duration = models.CharField(max_length=50, choices=MONTH, default=MONTH[0])
-    date_created = models.DateTimeField(auto_now=True)
+    date_created = models.CharField(default=timezone.now, max_length=40)
 
     def __str__(self):
         return str(self.user)
@@ -106,6 +107,7 @@ class Withdraw(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.FloatField()
     btc_wallet_address = models.TextField()
+    date_created = models.CharField(default=timezone.now, max_length=40)
 
     def __str__(self):
         return str(self.user)

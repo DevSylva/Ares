@@ -3,12 +3,12 @@ from .models import *
 # Register your models here.
 
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ("user", "amount",)
+    list_display = ("user", "amount")
     list_filter = ("user", "date_created",)
 
 class TransactionAdmin(admin.ModelAdmin):
     list_display = ("user", "amount", "status", "type")
-    list_filter = ("user", "type", "status", "plan")
+    list_filter = ("user", "type", "status", "plan", "date_created")
 
 class WalletAdmin(admin.ModelAdmin):
     list_display = ("name", "address")
