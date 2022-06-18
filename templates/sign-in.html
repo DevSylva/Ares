@@ -164,7 +164,8 @@
                         /> -->
                         {% render_field form.password class='form-control' placeholder="Password" type="password" %}
                       </div>
-                      <div class="form-check form-switch">
+                      <input type="checkbox" onclick="myFunction()"> Show Password
+                      <!-- <div class="form-check form-switch">
                         <input
                           class="form-check-input"
                           type="checkbox"
@@ -174,7 +175,7 @@
                         <label class="form-check-label" for="rememberMe"
                           >Remember me</label
                         >
-                      </div>
+                      </div> -->
                       {% if messages %}
 
                       {% for message in messages %}
@@ -246,6 +247,14 @@
           damping: "0.5",
         };
         Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+      }
+      function myFunction() {
+        var x = document.getElementById("id_password");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
       }
     </script>
     <!-- Github buttons -->
