@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
     <ul class="navbar-nav">
         <li class="nav-item">
-        <a class="nav-link active" href="{% url 'core:dashboard' %}">
+        <a class="nav-link {% if page == "dashboard" %} active {% else %} {% endif %}" href="{% url 'core:dashboard' %}">
             <div
             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
             >
@@ -70,7 +70,7 @@
         </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="{% url 'core:deposit' %}">
+          <a class="nav-link  {% if page == "deposit" %} active {% else %} {% endif %}" href="{% url 'core:deposit' %}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
@@ -90,7 +90,7 @@
           </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="{% url 'core:transactions' %}">
+        <a class="nav-link {% if page == "transactions" %} active {% else %} {% endif %}" href="{% url 'core:transactions' %}">
             <div
             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
             >
@@ -137,7 +137,7 @@
         </a>
         </li> 
         <li class="nav-item">
-        <a class="nav-link" href="{% url 'core:profile' %}">
+        <a class="nav-link {% if page == "profile" %} active {% else %} {% endif %}" href="{% url 'core:profile' %}">
             <div
             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
             >
@@ -186,7 +186,7 @@
         </li>
         
         <li class="nav-item">
-        <a class="nav-link" href="{% url 'account:sign-out' %}">
+        <a class="nav-link " href="{% url 'account:sign-out' %}">
             <div
             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
             >

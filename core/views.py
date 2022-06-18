@@ -24,7 +24,7 @@ def dashboard(request):
         "logged_in_user": logged_in_user,
         "Users": Users,
         "page": "dashboard",
-        "user": user
+        "user": user,
     }
     return render(request, "dashboard.html", context=data)
 
@@ -35,7 +35,7 @@ def profile(request):
     data = {
         'full_name': f"{user.first_name} {user.last_name}",
         'page': "profile",
-        'user': user
+        'user': user,
     }
     return render(request, "profile.html", context=data)
 
@@ -46,6 +46,7 @@ def transactions(request):
     data = {
         "transactions": transaction_s,
         "page": "teachers",
+        "page": "transactions",
     }
     return render(request, "transactions.html", context=data)
 
@@ -93,7 +94,8 @@ def deposit(request):
     data = {
         "eth": Wallet.objects.get(name="Ethereum(ETH) Wallet"),
         "btc": Wallet.objects.get(name="Bitcoin(BTC) Wallet"),
-        "form": form
+        "form": form,
+        "page": "deposit",
     }
     return render(request, "deposit.html", context=data)
 
@@ -103,7 +105,8 @@ def plan(request, id):
     user = User.objects.get(email=request.user)
     data = {
         "plan": investment_plan,
-        "user": user
+        "user": user,
+        "page": "plan",
     }
     return render(request, "plan.html", context=data)
 
