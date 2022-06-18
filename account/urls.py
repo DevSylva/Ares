@@ -10,6 +10,7 @@ urlpatterns = [
     path('sign-up/', views.sign_up, name="sign-up"),
     path('sign-out/', views.sign_out, name="sign-out"),
 
+    
 
     # api url path endpoint
     path('api/sign-up/', CustomUserCreate.as_view(), name='api-sign-up'),
