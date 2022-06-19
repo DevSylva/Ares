@@ -177,4 +177,7 @@ def withdraw(request):
             amount=request.POST['amount'],
             btc_wallet=request.POST['wallet']
         )
-    return render(request, "withdraw.html")
+    data = {
+        "page": "withdraw"
+    }
+    return render(request, "withdraw.html", context=data)
