@@ -18,7 +18,7 @@ def home(request):
 @login_required(login_url='account:sign-in')
 def dashboard(request):
     logged_in_user = request.user
-    Users = User.objects.all().count() + 36679
+    Users = User.objects.all().count() + 36979
     user = User.objects.get(email=request.user)
 
     data = {
