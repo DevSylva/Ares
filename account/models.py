@@ -34,7 +34,7 @@ class User(AbstractUser):
     def percent(self):
         percent_ = ((int(self.account_balance) - int(self.total_deposit))/int(self.total_deposit)) * 100
         _percent = round(percent_, 2)
-        self.percentage = f"{_percent)}%"
+        self.percentage = f"{_percent}%"
     
 
     def save(self, *args, **kwargs):
