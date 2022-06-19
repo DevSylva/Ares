@@ -99,6 +99,57 @@ def deposit(request):
     }
     return render(request, "deposit.html", context=data)
 
+
+@login_required(login_url="account:sign-in")
+def topup(request):
+    wallet = Wallet.objects.all()
+    if request.method == "POST":
+        form = PaymentForm(request.POST or None, request.FILES or None)
+        data = request.POST
+        file = request.FILES
+        print(f"file : {file}")
+        print(data)
+        if form.is_valid():
+            depositor = form.save(commit=False)
+            depositor.user = request.user
+            depositor.save()
+            print('done')
+            messages.success(
+                request, "We'll let you know once we receive your deposit")
+
+            Transaction.objects.create(
+                user=request.user,
+                plan=Plan.objects.get(id=request.POST['plan']),
+                amount=request.POST['amount'],
+                status="Pending",
+                completion="70",
+                type="Depost",
+            )
+
+            try:
+                data = {
+                    "subject": "Incoming Payment",
+                    "body": "Hello boss, a payment of ${} has been initialized by {},confirm and approve payment.".format(request.POST['amount'], request.user)
+                }
+                Util.send_email(data)
+                print("email has been successfully sent!")
+            except Exception as e:
+                print(e)
+
+            return redirect("core:transactions")
+        else:
+            messages.error(request, form.errors)
+            print(form.errors)
+    else:
+        form = PaymentForm()
+    data = {
+        "eth": Wallet.objects.get(name="Ethereum(ETH) Wallet"),
+        "btc": Wallet.objects.get(name="Bitcoin(BTC) Wallet"),
+        "form": form,
+        "page": "topup",
+    }
+    return render(request, "topup.html", context=data)
+
 @login_required(login_url="account:sign-in")
 def plan(request, id):
     investment_plan = Plan.objects.get(id=id)

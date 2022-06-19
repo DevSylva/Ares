@@ -9,6 +9,7 @@ urlpatterns = [
     path('profile/', views.profile, name="profile"),
     path('transactions/', views.transactions, name="transactions"),
     path('deposit/', views.deposit, name="deposit"),
+    path('top-up/', views.topup, name="topup"),
     path('withdraw/', views.withdraw, name="withdraw"),
     path('plan/<int:id>/', views.plan, name="plan"),
     path('bitcoin-qr-code/', views.bitcoin, name="bitcoin"),
