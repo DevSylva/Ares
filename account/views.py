@@ -57,16 +57,7 @@ def sign_up(request):
                 print("email has been successfully sent!")
             except Exception as e:
                 print(e)
-
-            # ofcourse notify the user too
-            # try:
-            #     data_ = {
-            #         "subject": "Welcome",
-            #         ""
-            #     }
-            # except:
-            #     pass
-
+                
             login(request, user)
             messages.success(request, "Registration successful.")
             return redirect("core:home")
