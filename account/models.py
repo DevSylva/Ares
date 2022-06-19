@@ -32,11 +32,16 @@ class User(AbstractUser):
             self.avatarr = None
 
     def percent(self):
-        percent_ = ((int(self.account_balance) - int(self.total_deposit))/int(self.total_deposit)) * 100
-        _percent = round(percent_, 2)
-        self.percentage = f"{_percent}%"
-    
-
+        try:
+            percent_ = ((int(self.account_balance) - int(self.total_deposit))/int(self.total_deposit)) * 100
+            _percent = round(percent_, 2)
+            if _percent >= 0:
+                self.percentage = f"+{_percent}%"
+            else:
+                self.percentage = f"-{_percent}%"
+        except Exception:
+            self.percentage = "+0%"
+        
     def save(self, *args, **kwargs):
         self.avatar()
         self.percent()
