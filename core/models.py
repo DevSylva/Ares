@@ -14,6 +14,7 @@ class Plan(models.Model):
     description = models.TextField(null=True, blank=True)
     starter_bonus = models.CharField(max_length=50, null=True, blank=True)
     topup_bonus = models.CharField(max_length=50, null=True, blank=True) 
+    daily_interest = models.CharField(max_length=50, null=True, blank=True)
 
     class Meta:
         verbose_name = "Investment Plan"
