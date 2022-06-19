@@ -5,6 +5,7 @@ from .models import *
 from .forms import PaymentForm
 from django.contrib import messages
 from .utils import Util
+import time
 
 
 
@@ -180,4 +181,6 @@ def withdraw(request):
     data = {
         "page": "withdraw"
     }
+
+    time.sleep(4)
     return render(request, "withdraw.html", context=data)
