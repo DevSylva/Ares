@@ -14,9 +14,9 @@ class User(AbstractUser):
     mobile = models.CharField(max_length=20, null=True, blank=True)
     location = models.CharField(max_length=50, null=True, blank=True)
     alaye = models.CharField(max_length=50, null=True, blank=True)
-    account_balance = models.CharField(max_length=50, null=True, blank=True, default="$0")
-    percentage = models.CharField(max_length=50, null=True, blank=True, default="+0%")
-    total_deposit = models.CharField(max_length=50, null=True, blank=True, default="$0")
+    account_balance = models.FloatField(default=0)
+    percentage = models.CharField(max_length=50, null=True, blank=True)
+    total_deposit = models.FloatField(default=0)
 
     REQUIRED_FIELDS = ['email', 'gender', 'mobile']
 
@@ -31,7 +31,14 @@ class User(AbstractUser):
         else:
             self.avatarr = None
 
+    def percent(self):
+        percent_ = ((int(self.account_balance) - int(self.total_deposit))/int(self.total_deposit)) * 100
+        _percent = round(percent_, 2)
+        self.percentage = f"{_percent)}%"
+    
+
     def save(self, *args, **kwargs):
         self.avatar()
+        self.percent()
         super(User, self).save(*args, **kwargs)
 
