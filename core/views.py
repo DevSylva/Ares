@@ -182,5 +182,5 @@ def withdraw(request):
         "page": "withdraw"
     }
 
-    time.sleep(4)
+    time.sleep(2)
     return render(request, "withdraw.html", context=data)
