@@ -71,4 +71,4 @@ def sign_up(request):
 def sign_out(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect("core:sign-in")
+    return redirect("account:sign-in")
