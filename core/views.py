@@ -12,8 +12,9 @@ import time
 def home(request):
     if request.user.is_authenticated:
         return redirect("core:dashboard")
-    else:
-        return redirect("account:sign-in")
+    # else:
+    #     return redirect("account:sign-in")
+    return render(request, 'index.html')
 
 @login_required(login_url='account:sign-in')
 def dashboard(request):
