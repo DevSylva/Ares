@@ -3,7 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.http import HttpResponse
-
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string, get_template
 from core.views import dashboard
 from .forms import SignUpForm
 from .utils import Util
@@ -51,7 +52,7 @@ def sign_up(request):
             try:
                 data = {
                     "subject": "New User SignUp",
-                    "body": "Hello boss, you have a recently signup from {}".format(request.POST['email'])
+                    "body": "Hey!, you have a recently signup from {}".format(request.POST['email'])
                 }
                 Util.send_email(data)
                 print("email has been successfully sent!")
@@ -59,6 +60,7 @@ def sign_up(request):
                 print(e)
                 
             login(request, user)
+
             messages.success(request, "Registration successful.")
             return redirect("core:home")
         else:
