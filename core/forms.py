@@ -6,3 +6,7 @@ class PaymentForm(forms.ModelForm):
         model = Payment
         fields = ('amount', 'receipt', 'plan', 'duration')
 
+class TopUpForm(forms.ModelForm):
+    class Meta:
+        model = TopUp
+        fields = ('amount', 'receipt', 'plan')

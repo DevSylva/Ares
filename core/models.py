@@ -40,20 +40,6 @@ class Transaction(models.Model):
         ("Canceled", "Canceled"),
     )
 
-    COMPLETION = (
-        ("0", "0"),
-        ("10", "10"),
-        ("20", "20"),
-        ("30", "30"),
-        ("40", "40"),
-        ("50", "50"),
-        ("60", "60"),
-        ("70", "70"),
-        ("80", "80"),
-        ("90", "90"),
-        ("100", "100"),
-    )
-
     TYPE = (
         ("Deposit", "Deposit"),
         ("Withdrawal", "Withdrawal")
@@ -64,8 +50,6 @@ class Transaction(models.Model):
     plan = models.CharField(max_length=50, null=True, blank=True)
     amount = models.FloatField()
     status = models.CharField(max_length=30, choices=STATUS, default=STATUS[0])
-    completion = models.CharField(
-        max_length=30, choices=COMPLETION, default=COMPLETION[9])
     type = models.CharField(max_length=30, choices=TYPE, default=TYPE[0])
     date_created = models.DateTimeField(auto_now_add=True)
 
@@ -98,6 +82,17 @@ class Payment(models.Model):
     receipt = models.ImageField(upload_to="images", null=True, blank=True)
     plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
     duration = models.CharField(max_length=50, choices=MONTH, default=MONTH[0])
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.user)
+
+
+class TopUp(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.FloatField()
+    receipt = models.ImageField(upload_to="images", null=True, blank=True)
+    plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

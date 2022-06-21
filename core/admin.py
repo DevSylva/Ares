@@ -6,6 +6,10 @@ class PaymentAdmin(admin.ModelAdmin):
     list_display = ("user", "amount")
     list_filter = ("user", "date_created",)
 
+class TopUpAdmin(admin.ModelAdmin):
+    list_display = ("user", "amount")
+    list_filter = ("user", "date_created",)
+
 class TransactionAdmin(admin.ModelAdmin):
     list_display = ("user", "amount", "status", "type")
     list_filter = ("user", "type", "status", "plan", "date_created")
@@ -22,3 +26,4 @@ admin.site.register(Plan, PlanAdmin)
 admin.site.register(Wallet, WalletAdmin)
 admin.site.register(Transaction, TransactionAdmin)
 admin.site.register(Payment, PaymentAdmin)
+admin.site.register(TopUp, TopUpAdmin)

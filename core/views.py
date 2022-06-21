@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from account.models import User
 from .models import *
-from .forms import PaymentForm
+from .forms import PaymentForm, TopUpForm
 from django.contrib import messages
 from .utils import Util
 import time
@@ -74,7 +74,7 @@ def deposit(request):
                 amount = request.POST['amount'],
                 status = "Pending",
                 completion = "70",
-                type="Depost",
+                type="Deposit",
             )
 
             try:
@@ -106,11 +106,9 @@ def deposit(request):
 def topup(request):
     wallet = Wallet.objects.all()
     if request.method == "POST":
-        form = PaymentForm(request.POST or None, request.FILES or None)
+        form = TopUpForm(request.POST or None, request.FILES or None)
         data = request.POST
         file = request.FILES
-        print(f"file : {file}")
-        print(data)
         if form.is_valid():
             depositor = form.save(commit=False)
             depositor.user = request.user
@@ -124,8 +122,7 @@ def topup(request):
                 plan=Plan.objects.get(id=request.POST['plan']),
                 amount=request.POST['amount'],
                 status="Pending",
-                completion="70",
-                type="Depost",
+                type="Deposit",
             )
 
             try:
@@ -143,7 +140,7 @@ def topup(request):
             messages.error(request, form.errors)
             print(form.errors)
     else:
-        form = PaymentForm()
+        form = TopUpForm()
     data = {
         "eth": Wallet.objects.get(name="Ethereum(ETH) Wallet"),
         "btc": Wallet.objects.get(name="Bitcoin(BTC) Wallet"),
