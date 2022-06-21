@@ -43,7 +43,7 @@ def profile(request):
 
 @login_required(login_url="account:sign-in")
 def transactions(request):
-    transaction_s = Transaction.objects.filter(user=request.user.id).order_by('-date_created')
+    transaction_s = Transaction.objects.filter(user=request.user.id).order_by('?')
 
     data = {
         "transactions": transaction_s,
