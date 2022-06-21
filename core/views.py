@@ -73,7 +73,6 @@ def deposit(request):
                 plan=Plan.objects.get(id=request.POST['plan']),
                 amount = request.POST['amount'],
                 status = "Pending",
-                
                 type="Deposit",
             )
 
