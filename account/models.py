@@ -13,7 +13,7 @@ class User(AbstractUser):
     avatarr = models.ImageField(null=True, blank=True)
     gender = models.CharField(max_length=20, null=True, blank=True, choices=GENDER, default=GENDER[0])
     email = models.EmailField(unique=True, max_length=250)
-    mobile = PhoneNumberField(default="+")
+    mobile = PhoneNumberField(default="")
     location = models.CharField(max_length=50, null=True, blank=True)
     alaye = models.CharField(max_length=50, null=True, blank=True)
     account_balance = models.FloatField(default=0)
