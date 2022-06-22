@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'drf_yasg2',
     'widget_tweaks',
     'crispy_forms',
+    'phonenumber_field',
 ]
 
 
@@ -212,7 +213,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_HOST = "smtp.gmail.com" #env('EMAIL_HOST')
+EMAIL_HOST = "smtp.gmail.com"  # env('EMAIL_HOST')
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')

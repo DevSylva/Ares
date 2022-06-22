@@ -1,6 +1,8 @@
+from email.policy import default
 from inspect import modulesbyfile
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 class User(AbstractUser):
@@ -11,7 +13,7 @@ class User(AbstractUser):
     avatarr = models.ImageField(null=True, blank=True)
     gender = models.CharField(max_length=20, null=True, blank=True, choices=GENDER, default=GENDER[0])
     email = models.EmailField(unique=True, max_length=250)
-    mobile = models.CharField(max_length=20, null=True, blank=True)
+    mobile = PhoneNumberField(default="+")
     location = models.CharField(max_length=50, null=True, blank=True)
     alaye = models.CharField(max_length=50, null=True, blank=True)
     account_balance = models.FloatField(default=0)

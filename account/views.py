@@ -1,3 +1,4 @@
+import mailbox
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
@@ -5,6 +6,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string, get_template
+from django.utils.html import strip_tags
 from core.views import dashboard
 from .forms import SignUpForm
 from .utils import Util
@@ -14,7 +16,7 @@ from .utils import Util
 def sign_in(request):
     if request.user.is_authenticated and request.method == "GET":
         return redirect("core:dashboard")
-        
+
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         data = request.POST
@@ -33,7 +35,7 @@ def sign_in(request):
         else:
             messages.error(request, "Invalid username or password.")
             return redirect("account:sign-in")
-            
+
     form = AuthenticationForm()
     return render(request, "sign-in.html", context={"form": form})
 
@@ -58,8 +60,26 @@ def sign_up(request):
                 print("email has been successfully sent!")
             except Exception as e:
                 print(e)
-                
+
             login(request, user)
+
+            # send the user a mailbox
+            try:
+                useremail = request.user.email
+                html_content = render_to_string(
+                    "welcome.html")
+                text_content = strip_tags(html_content)
+
+                email = EmailMultiAlternatives(
+                    subject="Welcome to Ares",
+                    body=text_content,
+                    from_email="aresherokuapps@gmail.com",
+                    to=[request.POST['email'], ]
+                )
+                email.attach_alternative(html_content, "text/html")
+                email.send()
+            except Exception as e:
+                print(e)
 
             messages.success(request, "Registration successful.")
             return redirect("core:home")
