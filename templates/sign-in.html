@@ -177,13 +177,6 @@
                         >
                       </div> -->
                       <br>
-                      {% if messages %}
-
-                      {% for message in messages %}
-                      {{ message }}<br>
-                      {% endfor %}
-
-                      {% endif %}
                       <div class="text-center">
                         <button
                           type="submit"
@@ -201,6 +194,13 @@
                         href="{% url 'account:sign-up' %}"
                         class="text-info text-gradient font-weight-bold"
                         >Sign up</a
+                      >
+                    </p>
+                    <p class="mb-4 text-sm mx-auto">
+                      <a
+                        href="https://ares-app.herokuapp.com/password_reset/"
+                        class="text-info text-gradient font-weight-bold"
+                        >Forgetten Password?</a
                       >
                     </p>
                   </div>
