@@ -28,12 +28,11 @@ def sign_in(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.info(request, f"You are now logged in as {username}.")
                 return redirect("core:dashboard")
             else:
-                messages.error(request, "Invalid username or password.")
+                messages.error(request, "User does not exit")
         else:
-            messages.error(request, "Invalid username or password.")
+            messages.error(request, form.errors)
             return redirect("account:sign-in")
 
     form = AuthenticationForm()
@@ -92,5 +91,4 @@ def sign_up(request):
 
 def sign_out(request):
     logout(request)
-    messages.info(request, "You have successfully logged out.")
     return redirect("account:sign-in")
