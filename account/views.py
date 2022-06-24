@@ -29,6 +29,7 @@ def sign_in(request):
             if user is not None:
                 login(request, user)
                 return redirect("core:dashboard")
+                
             else:
                 messages.error(request, "User does not exit")
         else:
