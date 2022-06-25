@@ -203,6 +203,15 @@
                         >Forgetten Password?</a
                       >
                     </p>
+                    <p class="mb-4 text-sm mx-auto">
+                      {% if messages %}
+
+                      {% for message in messages %}
+                      {{ message }}
+                      {% endfor %}
+
+                      {% endif %}
+                    </p>
                   </div>
                 </div>
               </div>

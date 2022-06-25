@@ -81,7 +81,6 @@ def sign_up(request):
             except Exception as e:
                 print(e)
 
-            messages.success(request, "Registration successful.")
             return redirect("core:home")
         else:
             messages.error(request, form.errors)
