@@ -149,10 +149,10 @@ WSGI_APPLICATION = 'Ares.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd568cehpgn1erl',
-        'USER': 'fpxmgnhmfcdkfu',
-        'PASSWORD': '0441d883e65620bc5ccca4ed52e4843e99e440870a4f4401306b7c096db1668e',
-        'HOST': 'ec2-3-234-131-8.compute-1.amazonaws.com',
+        'NAME': 'd1skj67gtou6ot',
+        'USER': 'ixmecmgbximrsv',
+        'PASSWORD': 'a6ae65cdd652dcf148d30d24c2cdb8dcf738ac431e1562fad2a4309550fa424d',
+        'HOST': 'ec2-54-227-248-71.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
