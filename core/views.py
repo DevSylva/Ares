@@ -20,7 +20,7 @@ def home(request):
 def dashboard(request):
     logged_in_user = request.user
     messages.success(request, f"You are logged in as {logged_in_user} ")
-    Users = User.objects.all().count() + 36979
+    Users = User.objects.all().count() + 36985
     user = User.objects.get(email=request.user)
 
     data = {
