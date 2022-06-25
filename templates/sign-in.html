@@ -164,6 +164,13 @@
                         /> -->
                         {% render_field form.password class='form-control' placeholder="Password" type="password" %}
                       </div>
+                      {% if messages %}
+
+                      {% for message in messages %}
+                      {{ message }}
+                      {% endfor %}
+
+                      {% endif %}
                       <input type="checkbox" onclick="myFunction()"> Show Password
                       <!-- <div class="form-check form-switch">
                         <input
@@ -188,15 +195,6 @@
                     </form>
                   </div>
                   <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                    <p class="mb-4 text-sm mx-auto">
-                      {% if messages %}
-
-                      {% for message in messages %}
-                      {{ message }}
-                      {% endfor %}
-
-                      {% endif %}
-                    </p>
                     <p class="mb-4 text-sm mx-auto">
                       Don't have an account?
                       <a
