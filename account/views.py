@@ -19,15 +19,21 @@ def sign_in(request):
 
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
-        data = request.POST
-        print(data)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            print(password)
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
+                try:
+                    data = {
+                        "subject": "User Sign In",
+                        "body": "Hey!, {} just signed in".format(request.user)
+                    }
+                    Util.send_emaill(data)
+                    print("email has been successfully sent!")
+                except Exception as e:
+                    print(e)
                 return redirect("core:dashboard")
                 
             else:
@@ -45,7 +51,6 @@ def sign_up(request):
         return redirect("core:dashboard")
 
     if request.method == "POST":
-        print(request.POST)
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()

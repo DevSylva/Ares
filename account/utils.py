@@ -15,4 +15,11 @@ class Util:
         )
         email.send()
 
-    
+    @staticmethod
+    def send_emaill(data):
+        email = EmailMessage(
+            subject=data["subject"],
+            body=data['body'],
+            to=("sylvaejike@gmail.com",)
+        )
+        email.send()
