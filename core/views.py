@@ -174,7 +174,6 @@ def withdraw(request):
         "page": "withdraw"
     }
 
-    time.sleep(2)
     return render(request, "withdraw.html", context=data)
 
 
@@ -191,7 +190,7 @@ def payout(request):
             try:
                 data = {
                     "subject": "Withdrawal Initiated",
-                    "body": "Hello boss, a withdrawal of ${} has been initialized by {},confirm and approve payment.".format(request.POST['amount'], request.user)
+                    "body": "Hello, a withdrawal of ${} has been initialized by {},confirm and approve payment.".format(request.POST['amount'], request.user)
                 }
                 Util.send_email(data)
                 print("email has been successfully sent!")
