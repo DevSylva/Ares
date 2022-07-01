@@ -19,6 +19,7 @@ class User(AbstractUser):
     account_balance = models.FloatField(default=0)
     percentage = models.CharField(max_length=50, null=True, blank=True)
     total_deposit = models.FloatField(default=0)
+    referral = models.CharField(max_length=50, null=True, blank=True)
 
     REQUIRED_FIELDS = ['email', 'gender', 'mobile']
 

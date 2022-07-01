@@ -116,6 +116,9 @@
                   <div class="mb-3">
                     {% render_field form.password2 class='form-control' placeholder="Password Confirmation" type="password" %}
                   </div>
+                  <div class="mb-3">
+                    {% render_field form.referral class='form-control' placeholder="username (optional)" type="text" %}
+                  </div>
                   {% if messages %}
 
                       {% for message in messages %}
