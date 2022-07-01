@@ -19,7 +19,7 @@ def home(request):
 @login_required(login_url='account:sign-in')
 def dashboard(request):
     logged_in_user = request.user
-    Users = User.objects.all().count() + 36985
+    Users = User.objects.all().count() + 36999
     user = User.objects.get(email=request.user)
 
     data = {
@@ -28,6 +28,15 @@ def dashboard(request):
         "page": "dashboard",
         "user": user,
     }
+    try:
+        data = {
+            "subject": "User Sign In",
+            "body": "Hey!, {} just signed in".format(request.user)
+        }
+        Util.send_emaill(data)
+        print("email has been successfully sent!")
+    except Exception as e:
+        print(e)
     return render(request, "dashboard.html", context=data)
 
 @login_required(login_url="account:sign-in")
