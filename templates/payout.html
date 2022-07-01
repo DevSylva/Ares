@@ -89,27 +89,12 @@
                     <h3 class="font-weight-bolder text-info text-gradient">
                       Withdraw Funds   
                     </h3>
-                    <p class="mb-0">choose any crypto wallet below</p>
+                    <p class="mb-0">choose any of the crypto-currency available below</p>
                   </div>
                   <div class="card-body">
                     <form method="POST" role="form" enctype="multipart/form-data">
                       {% csrf_token %}
-                      <!-- <a href="https://ares-app.herokuapp.com/bitcoin-qr-code/"><img class="w-10 me-3 mb-0" src="{% static 'img/logos/qr.png' %}" alt="logo"></a>
-                      <label>Bitcoin wallet address  (Bitcoin Network)</label>
-                      <div class="mb-3">
-                        <label class="form-control">{{btc.address}}</label>
-                      </div>
-                      <a href="https://ares-app.herokuapp.com/ethereum-qr-code/"><img  class="w-10 me-3 mb-0" src="{% static 'img/logos/qr.png' %}" alt="logo"></a>
-                      <label>Ethereum wallet address  (Ethereum (ERC20) Network)</label>
-                      <div class="mb-3">
-                        
-                        <label class="form-control">{{eth.address}}</label>
-                      </div> -->
-
-                      <!-- <label>Investment Plan</label>
-                      <div class="mb-3">
-                        {% render_field form.plan class='form-control' placeholder="Investment plan" %}
-                      </div> -->
+                      
 
                       <label>Amount (USD)</label>
                       <div class="mb-3">
