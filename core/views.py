@@ -28,15 +28,7 @@ def dashboard(request):
         "page": "dashboard",
         "user": user,
     }
-    try:
-        data = {
-            "subject": "User Sign In",
-            "body": "Hey!, {} just signed in".format(request.user)
-        }
-        Util.send_emaill(data)
-        print("email has been successfully sent!")
-    except Exception as e:
-        print(e)
+    
     return render(request, "dashboard.html", context=data)
 
 @login_required(login_url="account:sign-in")
