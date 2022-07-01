@@ -103,9 +103,15 @@ class TopUp(models.Model):
 
 
 class Withdraw(models.Model):
+    CRYPTO_ID = (
+        ("Bitcoin", "Bitcoin"), 
+        ("Ethereum", "Ethereum"),
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.FloatField()
-    btc_wallet_address = models.TextField()
+    crypto_id = models.CharField(
+        max_length=50, choices=CRYPTO_ID, default=CRYPTO_ID[0])
+    wallet_address = models.TextField(default="")
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

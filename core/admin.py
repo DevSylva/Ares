@@ -21,9 +21,12 @@ class WalletAdmin(admin.ModelAdmin):
 class PlanAdmin(admin.ModelAdmin):
     list_display = ("name", "pricing")
 
-
+class WithdrawAdmin(admin.ModelAdmin):
+    list_display = ('user', 'amount')
+    
 admin.site.register(Plan, PlanAdmin)
 admin.site.register(Wallet, WalletAdmin)
 admin.site.register(Transaction, TransactionAdmin)
 admin.site.register(Payment, PaymentAdmin)
 admin.site.register(TopUp, TopUpAdmin)
+admin.site.register(Withdraw)

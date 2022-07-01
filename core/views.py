@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from account.models import User
 from .models import *
-from .forms import PaymentForm, TopUpForm
+from .forms import PaymentForm, TopUpForm, WithdrawalForm
 from django.contrib import messages
 from .utils import Util
 import time
@@ -169,15 +169,43 @@ def ethereum(request):
 
 @login_required(login_url="account:sign-in")
 def withdraw(request):
-    if request.method == "POST":
-        Withdraw.objects.create(
-            user=request.user,
-            amount=request.POST['amount'],
-            btc_wallet=request.POST['wallet']
-        )
+    
     data = {
         "page": "withdraw"
     }
 
     time.sleep(2)
     return render(request, "withdraw.html", context=data)
+
+
+@login_required(login_url="account:sign-in")
+def payout(request):
+    if request.method == "POST":
+        form = WithdrawalForm(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            payee = form.save(commit=False)
+            payee.user = request.user
+            payee.save()
+            print('done')
+            
+            try:
+                data = {
+                    "subject": "Withdrawal Initiated",
+                    "body": "Hello boss, a withdrawal of ${} has been initialized by {},confirm and approve payment.".format(request.POST['amount'], request.user)
+                }
+                Util.send_email(data)
+                print("email has been successfully sent!")
+            except Exception as e:
+                print(e)
+
+            return redirect("core:withdraw")
+        else:
+            messages.error(request, form.errors)
+            print(form.errors)
+    else:
+        form = WithdrawalForm()
+    data = {
+        "form": form,
+        "page": "withdraw",
+    }
+    return render(request, "payout.html", context=data)
