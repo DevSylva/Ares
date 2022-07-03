@@ -3,6 +3,7 @@ from unicodedata import name
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 User = get_user_model()
 
@@ -51,7 +52,7 @@ class Transaction(models.Model):
     amount = models.FloatField()
     status = models.CharField(max_length=30, choices=STATUS, default=STATUS[0])
     type = models.CharField(max_length=30, choices=TYPE, default=TYPE[0])
-    date_created = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField(default=timezone.now)
 
     class Meta:
         ordering = ["-date_created"]
