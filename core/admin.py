@@ -13,6 +13,7 @@ class TopUpAdmin(admin.ModelAdmin):
 class TransactionAdmin(admin.ModelAdmin):
     list_display = ("user", "amount", "status", "type")
     list_filter = ("user", "type", "status", "plan", "date_created")
+    fields = ("user", "type", "status", "plan", "date_created")
 
 class WalletAdmin(admin.ModelAdmin):
     list_display = ("name", "address")
