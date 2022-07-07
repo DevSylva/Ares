@@ -231,9 +231,9 @@
                       >
                         <div class="d-flex align-items-center">
                           <button
-                            class="btn btn-icon-only btn-rounded btn-outline-{% if transaction.type == "Deposit" and transaction.status != "Pending" and transaction.status != "Canceled" %}success{% elif transaction.type == "Withdrawal" and transaction.status != "Pending" and transaction.status != "Canceled" %}danger{% else %}dark{% endif %} mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"
+                            class="btn btn-icon-only btn-rounded btn-outline-{% if transaction.type == "Deposit" and transaction.status != "Pending" and transaction.status != "Cancelled" %}success{% elif transaction.type == "Withdrawal" and transaction.status != "Pending" and transaction.status != "Cancelled" %}danger{% else %}dark{% endif %} mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"
                           >
-                            <i class="fas fa-{% if transaction.type == "Deposit" and transaction.status != "Pending"  and transaction.status != "Canceled" %}arrow-down{% elif transaction.type == "Withdrawal" and transaction.status != "Pending" and transaction.status != "Canceled" %}arrow-up{% else %}exclamation{% endif %}"></i>
+                            <i class="fas fa-{% if transaction.type == "Deposit" and transaction.status != "Pending"  and transaction.status != "Cancelled" %}arrow-down{% elif transaction.type == "Withdrawal" and transaction.status != "Pending" and transaction.status != "Cancelled" %}arrow-up{% else %}exclamation{% endif %}"></i>
                           </button>
                           <div class="d-flex flex-column">
                             <h6 class="mb-1 text-dark text-sm">{{transaction.plan}}</h6>
@@ -243,9 +243,9 @@
                           </div>
                         </div>
                         <div
-                          class="d-flex align-items-center text-{% if transaction.type == "Deposit" and transaction.status != "Pending"  and transaction.status != "Canceled" %}success{% elif transaction.type == "Withdrawal" and transaction.status != "Pending" and transaction.status != "Canceled"%}danger{% else %}dark{% endif %} text-gradient text-sm font-weight-bold"
+                          class="d-flex align-items-center text-{% if transaction.type == "Deposit" and transaction.status != "Pending"  and transaction.status != "Cancelled" %}success{% elif transaction.type == "Withdrawal" and transaction.status != "Pending" and transaction.status != "Cancelled"%}danger{% else %}dark{% endif %} text-gradient text-sm font-weight-bold"
                         >
-                         {% if transaction.type == "Deposit" and transaction.status != "Pending" and transaction.status != "Canceled" %}+{% elif transaction.type == "Withdrawal" and transaction.status != "Pending"  and transaction.status != "Canceled" %}-{% else %}{% endif %}{% if transaction.status == "Pending"  and transaction.status != "Canceled" %}Pending{% else %}${{transaction.amount}}{% endif %}
+                         {% if transaction.type == "Deposit" and transaction.status != "Pending" and transaction.status != "Cancelled" %}+{% elif transaction.type == "Withdrawal" and transaction.status != "Pending"  and transaction.status != "Cancelled" %}-{% else %}{% endif %}{% if transaction.status == "Pending"  and transaction.status != "Cancelled" %}Pending{% else %}${{transaction.amount}}{% endif %}
                         </div>
                       </li>
                       {% endfor %}

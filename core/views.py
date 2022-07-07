@@ -187,7 +187,6 @@ def payout(request):
             payee = form.save(commit=False)
             payee.user = request.user
             payee.save()
-            print('done')
             
             try:
                 data = {
