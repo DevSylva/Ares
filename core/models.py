@@ -66,6 +66,8 @@ class Transaction(models.Model):
         else:
             self.image = "withdrawal.png"
 
+   
+
     def save(self, *args, **kwargs):
         self.logo()
         super(Transaction, self).save(*args, **kwargs)

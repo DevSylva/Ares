@@ -18,6 +18,7 @@ def home(request):
 
 @login_required(login_url='account:sign-in')
 def dashboard(request):
+    global logged_in_user
     logged_in_user = request.user
     Users = User.objects.all().count() + 41659
     user = User.objects.get(email=request.user)
@@ -69,7 +70,7 @@ def deposit(request):
             print('done')
             messages.success(request, "We'll let you know once we receive your deposit")
 
-            Transaction.objects.create(
+            tx = Transaction.objects.create(
                 user=request.user,
                 plan=Plan.objects.get(id=request.POST['plan']),
                 amount = request.POST['amount'],
