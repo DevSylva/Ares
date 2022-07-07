@@ -41,7 +41,7 @@ class User(AbstractUser):
             if _percent >= 0:
                 self.percentage = f"+{_percent}%"
             else:
-                self.percentage = f"-{_percent}%"
+                self.percentage = f"{_percent}%"
         except Exception:
             self.percentage = "+0%"
         
