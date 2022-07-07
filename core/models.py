@@ -111,17 +111,8 @@ class Withdraw(models.Model):
         ("Ethereum", "Ethereum"),
     )
 
-    PLAN = (
-        ("Bronze Plan", "Bronze Plan"), 
-        ("Silver Plan", "Silver Plan"),
-        ("Gold Plan", "Gold Plan"),
-        ("Platinum Plan", "Platinum Plan"), 
-    )
-
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.FloatField()
-    plan = models.CharField(
-        max_length=50, choices=PLAN, default=PLAN[0])
     crypto_id = models.CharField(
         max_length=50, choices=CRYPTO_ID, default=CRYPTO_ID[0])
     wallet_address = models.TextField(default="")

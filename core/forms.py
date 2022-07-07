@@ -15,4 +15,4 @@ class TopUpForm(forms.ModelForm):
 class WithdrawalForm(forms.ModelForm):
     class Meta:
         model = Withdraw
-        fields = ('amount', 'plan', 'crypto_id', 'wallet_address')
+        fields = ('amount', 'crypto_id', 'wallet_address')
