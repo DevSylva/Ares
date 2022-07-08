@@ -72,7 +72,7 @@ class Transaction(models.Model):
         if self.type == "Deposit" and self.status == "Done":
             user = User.objects.get(id=self.user.id)
             user.total_deposit += self.amount
-            user.account_balance = user.account_balance + self.amount + 350
+            user.account_balance = user.account_balance + self.amount + 150
             user.save()
         self.logo()
         super(Transaction, self).save(*args, **kwargs)
