@@ -85,7 +85,7 @@ class Payment(models.Model):
         ("3", "3 months"),("4", "4 months"),
         ("5", "5 months"),("6", "6 months"),
         ("7", "7 months"),("8", "8 months"),
-        ("9", "9 months"),("2", "10 months"),
+        ("9", "9 months"),("10", "10 months"),
         ("11", "11 months"),("12", "a year"),
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
