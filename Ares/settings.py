@@ -221,14 +221,3 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 django_on_heroku.settings(locals())
 
-try:
-    from django.contrib.messages import constants as messages
-    MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-info',
-        messages.INFO: 'alert-info',
-        messages.SUCCESS: 'alert-success',
-        messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
-    }
-except Exception as e:
-    pass
