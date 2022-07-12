@@ -49,7 +49,6 @@ def transactions(request):
 
     data = {
         "transactions": transaction_s,
-        "page": "teachers",
         "page": "transactions",
     }
     return render(request, "transactions.html", context=data)
