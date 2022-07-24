@@ -90,7 +90,7 @@ class Payment(models.Model):
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.FloatField()
-    receipt = models.ImageField(upload_to="images", null=True, blank=True)
+    receipt = models.ImageField(upload_to="images/", null=True, blank=True)
     plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
     duration = models.CharField(max_length=50, choices=MONTH, default=MONTH[0])
     date_created = models.DateTimeField(auto_now_add=True)
